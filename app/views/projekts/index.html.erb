@@ -1,3 +1,12 @@
 <h1> Hier sind die Projekte # Landingpage </h1>
 
 <button type="button" class="btn btn-default"><%= link_to "Neues Projekt", new_projekt_path %></button>
+
+
+<% @projekts.each do |projekt| %>
+
+        <div>
+          <h2><%= link_to projekt.name, projekt %></h2>
+        </div>
+
+<% end %>
