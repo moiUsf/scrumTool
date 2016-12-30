@@ -18,6 +18,26 @@ class ProjektsController < ApplicationController
     	end
 	end
 
+	def show
+  	end
+
+  	def edit
+  	end
+
+  	def update
+		if @projekt.update(projekt_params)
+			redirect_to projekt_path(@projekt)
+		else
+			render 'edit'
+		end
+  	end
+
+  	def destroy
+  		@projekt.destroy
+    	redirect_to root_path
+  	end
+
+
 	def find_projekt
     	@projekt = Projekt.find(params[:id])
   	end

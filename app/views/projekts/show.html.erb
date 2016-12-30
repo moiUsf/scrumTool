@@ -1,0 +1,7 @@
+<h2><%= @projekt.name %></h2>
+<p>Hier muss das Projekt weiter Entwickelt werden .....</p>
+
+
+<%= link_to "Zurück", root_path %>
+<%= link_to "Editieren", edit_projekt_path %>
+<%=link_to "Löschen", projekt_path(@projekt), method: :delete, data: { confirm: "Bist du sicher ?"} %>
