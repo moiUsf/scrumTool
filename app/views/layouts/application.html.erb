@@ -10,6 +10,10 @@
 
   <body>
   	<div class="container">
+      <% if user_signed_in? %>
+      <%= link_to"Welcome, #{current_user.email}", destroy_user_session_path, :method => :delete %> 
+      <% end %>   
+      
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
     	<%= yield %>
