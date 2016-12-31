@@ -2,15 +2,15 @@ class ProjektsController < ApplicationController
 	before_action :find_projekt, only: [:show, :edit, :update, :destroy, :complete]
 	before_action :authenticate_user!
 	def index
-		@projekts = Projekt.all
+		@projekts = current_user.projekts
 	end
 
 	def new
-		@projekt = Projekt.new
+		@projekt = current_user.projekts.build
 	end
 
 	def create
-		@projekt = Projekt.new(projekt_params)
+		@projekt = current_user.projekts.build(projekt_params)
     	if @projekt.save
       		redirect_to root_path
     	else
