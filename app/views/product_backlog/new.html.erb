@@ -1,0 +1,6 @@
+<h1>new userStory anlegen </h1>
+
+<%= simple_form_for @userStory do |f| %>
+  <%= f.input :name, label: "userStory name" %>
+  <%= f.button :submit, "Anlegen" %>
+<% end %>
