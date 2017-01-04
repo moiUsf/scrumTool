@@ -1,5 +1,5 @@
 class ProjektsController < ApplicationController
-	before_action :find_projekt, only: [:show, :edit, :update, :destroy, :complete]
+	before_action :find_projekt, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
 	def index
 		@projekts = current_user.projekts
@@ -21,28 +21,28 @@ class ProjektsController < ApplicationController
 	def show
   	end
 
-  	def edit
-  	end
+	def edit
+	end
 
-  	def update
-		if @projekt.update(projekt_params)
-			redirect_to projekt_path(@projekt)
-		else
-			render 'edit'
-		end
-  	end
+	def update
+	if @projekt.update(projekt_params)
+		redirect_to projekt_path(@projekt)
+	else
+		render 'edit'
+	end
+	end
 
-  	def destroy
-  		@projekt.destroy
-    	redirect_to root_path
-  	end
+	def destroy
+		@projekt.destroy
+  	redirect_to root_path
+	end
 
 
-	def find_projekt
-    	@projekt = Projekt.find(params[:id])
-  	end
+  def find_projekt
+  	@projekt = Projekt.find(params[:id])
+	end
 
-  	def projekt_params
-  		params.require(:projekt).permit(:name)
-  	end
+	def projekt_params
+		params.require(:projekt).permit(:name)
+	end
 end
