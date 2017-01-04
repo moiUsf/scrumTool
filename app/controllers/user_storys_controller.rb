@@ -27,11 +27,16 @@ class UserStorysController < ApplicationController
 	end
 
 	def update
-	if @userstory.update(userstorie_params)
-		redirect_to user_story_path(@userstory)
-	else
-		render 'edit'
+		if @userstory.update(userstorie_params)
+			redirect_to user_story_path(@userstory)
+		else
+			render 'edit'
+		end
 	end
+
+	def destroy
+		@userstory.destroy
+  		redirect_to user_storys_path
 	end
 
 
