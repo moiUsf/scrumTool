@@ -3,15 +3,20 @@ class UserStorysController < ApplicationController
 	before_action :authenticate_user!
 
 	def index
-		@userstorys = UserStory.all
+
+		projekt = Projekt.find(params[:id])
+		@id = projekt.id
+		@userstorys = projekt.user_stories
+		 
 	end
 
 	def new
-		@userstory = UserStory.new
+		projekt = Projekt.find(@id)
+		@userstory =  projekt.user_stories.build#UserStory.new
 	end
 
 	def create
-		@userstory = UserStory.new(userstorie_params)
+		@userstory = projekt.user_stories.build#UserStory.new(userstorie_params)
     	if @userstory.save
       		redirect_to user_storys_path
     	else

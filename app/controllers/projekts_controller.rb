@@ -1,5 +1,5 @@
 class ProjektsController < ApplicationController
-	before_action :find_projekt, only: [:show, :edit, :update, :destroy]
+	before_action :find_projekt, only: [:show, :edit, :update, :destroy, :getProjektId]
 	before_action :authenticate_user!
 	def index
 		@projekts = current_user.projekts
@@ -19,7 +19,8 @@ class ProjektsController < ApplicationController
 	end
 
 	def show
-  	end
+    @id = @projekt.id
+  end
 
 	def edit
 	end
@@ -45,4 +46,8 @@ class ProjektsController < ApplicationController
 	def projekt_params
 		params.require(:projekt).permit(:name)
 	end
+
+  def getProjektId
+    redirect_to :controller => 'user_storys', :action => 'index', @projekt => @projekt
+  end
 end
