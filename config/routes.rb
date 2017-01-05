@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   #get ':projekt_id', to: 'user_storys#index'
 
   resources :projekts
-  resources :user_storys
+  resources :user_storys 
 end

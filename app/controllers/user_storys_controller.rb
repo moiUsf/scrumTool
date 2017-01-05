@@ -1,5 +1,6 @@
 class UserStorysController < ApplicationController
 	before_action :find_userstorie, only: [:show, :edit, :update, :destroy]
+	before_filter :common_content, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
 
 	def index
@@ -10,8 +11,9 @@ class UserStorysController < ApplicationController
 		 
 	end
 
+
 	def new
-		projekt = Projekt.find(@id)
+		projekt = Projekt.find(params[:id])
 		@userstory =  projekt.user_stories.build#UserStory.new
 	end
 
@@ -44,6 +46,10 @@ class UserStorysController < ApplicationController
   		redirect_to user_storys_path
 	end
 
+	def common_content
+    	@id = :id
+  	end
+
 
 
 
@@ -58,7 +64,7 @@ class UserStorysController < ApplicationController
 
 
 	def find_userstorie
-  	@userstory = UserStory.find(params[:id])
+  		@userstory = UserStory.find(params[:id])
 	end
 
 	def userstorie_params
