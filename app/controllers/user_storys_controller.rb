@@ -4,26 +4,26 @@ class UserStorysController < ApplicationController
 
 	def index
 
-		projekt = Projekt.find(params[:id])
-		@id = projekt.id
+		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
 		@userstorys = projekt.user_stories
 		 
 	end
 
 
 	def new
-		projekt = Projekt.find(params[:id])
-		@id = projekt.id
+		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
 		@user_stories =  projekt.user_stories.build #UserStory.new
 	end
 
 	def create
-		projekt = Projekt.find(params[:id])
-		@id = projekt.id
+		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
 		@userstory = projekt.user_stories.build(userstorie_params) #UserStory.new(userstorie_params)
     	if @userstory.save
     		
-      		redirect_to user_storys_path(:id => @id)
+      		redirect_to user_storys_path(:projekt_id => @projekt_id)
     	else
      		render 'new'  
     	end
@@ -31,6 +31,9 @@ class UserStorysController < ApplicationController
 
 
 	def show
+		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
+
   	end
 
   	def edit
@@ -46,7 +49,7 @@ class UserStorysController < ApplicationController
 
 	def destroy
 		@userstory.destroy
-  		redirect_to user_storys_path(:id => @id)
+  		redirect_to user_storys_path(:projekt_id => @projekt_id)
 	end
 
 

@@ -1,6 +1,6 @@
 <h1> neue userStory anlegen </h1>
 
-<%= simple_form_for @user_stories, url: user_storys_path(:id => @id)  do |f| %>
+<%= simple_form_for @user_stories, url: user_storys_path(:projekt_id => @projekt_id)  do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.button :submit, "Anlegen" %>
