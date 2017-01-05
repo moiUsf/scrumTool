@@ -1,6 +1,5 @@
 class UserStorysController < ApplicationController
 	before_action :find_userstorie, only: [:show, :edit, :update, :destroy]
-	before_filter :common_content, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
 
 	def index
@@ -14,15 +13,19 @@ class UserStorysController < ApplicationController
 
 	def new
 		projekt = Projekt.find(params[:id])
-		@userstory =  projekt.user_stories.build#UserStory.new
+		@id = projekt.id
+		@user_stories =  projekt.user_stories.build #UserStory.new
 	end
 
 	def create
-		@userstory = projekt.user_stories.build#UserStory.new(userstorie_params)
+		projekt = Projekt.find(params[:id])
+		@id = projekt.id
+		@userstory = projekt.user_stories.build(userstorie_params) #UserStory.new(userstorie_params)
     	if @userstory.save
-      		redirect_to user_storys_path
+    		
+      		redirect_to user_storys_path(:id => @id)
     	else
-     		render 'new'  #wenn es nicht klappt, die view new wird nochmal mit den eingegebenen Daten geladen, noch mal versuchen
+     		render 'new'  
     	end
 	end
 
@@ -43,21 +46,8 @@ class UserStorysController < ApplicationController
 
 	def destroy
 		@userstory.destroy
-  		redirect_to user_storys_path
+  		redirect_to user_storys_path(:id => @id)
 	end
-
-	def common_content
-    	@id = :id
-  	end
-
-
-
-
-
-
-
-
-
 
 
 
@@ -68,6 +58,6 @@ class UserStorysController < ApplicationController
 	end
 
 	def userstorie_params
-		params.require(:user_story).permit(:title, :description)
+		params.require(:user_story).permit(:title, :description, :projekt_id)
 	end
 end
