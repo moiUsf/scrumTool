@@ -1,9 +1,16 @@
 <h2><span> Sprint </span> <%=@sprint.sprintnumber%></h2>
+<p>Hier müssen die Unterpunkte weiter Entwickelt werden .....</p>
+
+<div>
+	<p><%= link_to "Sprint Planning", root_path %></p>
+	<p><%= link_to "Scrum Board", root_path %></p>
+	<p><%= link_to "Sprint Review", root_path %></p>
+	<p><%= link_to "Sprint Retrospective", root_path %></p>
+</div>
 
 
 <div class=crud>
 	<%= link_to "Zurück", sprints_path(projekt_id: @projekt_id) %>
-	<%= link_to "Editieren", edit_sprint_path(@sprint, projekt_id: @projekt_id) %>
 	<%=link_to "Löschen", sprint_path(@sprint, projekt_id: @projekt_id), method: :delete, data: { confirm: "Bist du sicher ?"} %>
 	
 </div>

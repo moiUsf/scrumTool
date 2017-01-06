@@ -31,6 +31,28 @@ class SprintsController < ApplicationController
 		@projekt_id = projekt.id
   	end
 
+  	def edit
+  		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
+	end
+
+	def update
+		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
+		if @sprint.update(sprint_params)
+			redirect_to sprint_path(@sprint,projekt_id: @projekt_id)
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
+		@sprint.destroy
+  		redirect_to sprints_path(projekt_id: @projekt_id)
+	end
+
 
 
 

@@ -1,0 +1,10 @@
+<h1> neue sprint editieren </h1>
+
+<%= simple_form_for @sprints, url: sprints_path(projekt_id: @projekt_id)  do |f| %>
+  <%= f.input :sprintnumber %>
+  <%= f.button :submit, "Anlegen" %>
+<% end %>
+
+<div class = "crud">
+			<p><%= link_to "Zurück", projekt_path(@projekt_id) %>
+</div>
