@@ -1,5 +1,5 @@
 class UserStorysController < ApplicationController
-	before_action :find_userstorie, only: [:show, :edit, :update, :destroy]
+	before_action :find_userstorie, :getProjekt, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!
 
 	def index
@@ -12,14 +12,10 @@ class UserStorysController < ApplicationController
 
 
 	def new
-		projekt = Projekt.find(params[:projekt_id])
-		@projekt_id = projekt.id
 		@user_stories =  projekt.user_stories.build #UserStory.new
 	end
 
 	def create
-		projekt = Projekt.find(params[:projekt_id])
-		@projekt_id = projekt.id
 		@userstory = projekt.user_stories.build(userstorie_params) #UserStory.new(userstorie_params)
     	if @userstory.save
     		
@@ -31,19 +27,12 @@ class UserStorysController < ApplicationController
 
 
 	def show
-		projekt = Projekt.find(params[:projekt_id])
-		@projekt_id = projekt.id
-
   	end
 
   	def edit
-  		projekt = Projekt.find(params[:projekt_id])
-		@projekt_id = projekt.id
 	end
 
 	def update
-		projekt = Projekt.find(params[:projekt_id])
-		@projekt_id = projekt.id
 		if @userstory.update(userstorie_params)
 			redirect_to user_story_path(@userstory,:projekt_id => @projekt_id)
 		else
@@ -52,14 +41,15 @@ class UserStorysController < ApplicationController
 	end
 
 	def destroy
-		projekt = Projekt.find(params[:projekt_id])
-		@projekt_id = projekt.id
 		@userstory.destroy
   		redirect_to user_storys_path(:projekt_id => @projekt_id)
 	end
 
 
-
+	def getProjekt
+		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
+	end
 
 
 	def find_userstorie
