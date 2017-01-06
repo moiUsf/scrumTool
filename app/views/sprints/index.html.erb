@@ -1,0 +1,16 @@
+<h1>My Sprints ...</h1>
+<button type="button" class="btn btn-default"><%= link_to "New sprint", new_sprint_path(projekt_id: @projekt_id) %></button>
+
+<% @sprints.each do |sprint| %>
+
+    <div>
+      	<h2><%= link_to sprint.sprintnumber, sprint %></h2>
+    </div>
+
+        
+
+<% end %>
+
+<div class = "crud">
+	<p><%= link_to "Zurück", projekt_path(@projekt_id) %>
+</div>

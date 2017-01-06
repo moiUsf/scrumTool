@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   resources :projekts
   resources :user_storys 
-  resources :sprint
+  resources :sprints
 end

@@ -1,8 +1,8 @@
 <h2><%= @projekt.name %></h2>
 <p>Hier muss das Projekt weiter Entwickelt werden .....</p>
 
-<p><%= link_to "Product Backlog", user_storys_path(:projekt_id => @projekt.id) %></p>
-<p><%= link_to "Sprints", root_path %></p>
+<p><%= link_to "Product Backlog", user_storys_path(projekt_id: @projekt.id) %></p>
+<p><%= link_to "Sprints", sprints_path(projekt_id: @projekt.id) %></p>
 <p><%= link_to "Plannigs Poker", root_path %></p>
 <p><%= link_to "Burn-down-chart", root_path %></p>
 <p><%= link_to "Roadmap", root_path %></p>
