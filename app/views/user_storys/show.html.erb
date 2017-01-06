@@ -3,8 +3,8 @@
 
 
 <div class=crud>
-	<%= link_to "Zurück", user_storys_path(:projekt_id => @projekt_id) %>
-	<%= link_to "Editieren", edit_user_story_path(@userstory, :projekt_id => @projekt_id) %>
-	<%=link_to "Löschen", user_story_path(@userstory, :projekt_id => @projekt_id), method: :delete, data: { confirm: "Bist du sicher ?"} %>
+	<%= link_to "Zurück", user_storys_path(projekt_id: @projekt_id) %>
+	<%= link_to "Editieren", edit_user_story_path(@userstory, projekt_id: @projekt_id) %>
+	<%=link_to "Löschen", user_story_path(@userstory, projekt_id: @projekt_id), method: :delete, data: { confirm: "Bist du sicher ?"} %>
 	
 </div>
