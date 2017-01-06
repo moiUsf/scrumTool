@@ -37,17 +37,23 @@ class UserStorysController < ApplicationController
   	end
 
   	def edit
+  		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
 	end
 
 	def update
+		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
 		if @userstory.update(userstorie_params)
-			redirect_to user_story_path(@userstory)
+			redirect_to user_story_path(@userstory,:projekt_id => @projekt_id)
 		else
 			render 'edit'
 		end
 	end
 
 	def destroy
+		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
 		@userstory.destroy
   		redirect_to user_storys_path(:projekt_id => @projekt_id)
 	end

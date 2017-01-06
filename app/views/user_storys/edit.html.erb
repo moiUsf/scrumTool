@@ -1,6 +1,6 @@
 <h1>UserStory editieren </h1>
 
-<%= simple_form_for @userstory do |f| %>
+<%= simple_form_for @userstory, url: user_story_path(:projekt_id => @projekt_id)  do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.button :submit, "Editieren" %>

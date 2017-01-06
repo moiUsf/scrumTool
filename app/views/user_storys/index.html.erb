@@ -4,7 +4,13 @@
 <% @userstorys.each do |userstory| %>
 
         <div>
-          <h2><%= link_to userstory.title, user_story_path(userstory, :projekt_id => @projekt_id) %></h2>
+          	<h2><%= link_to userstory.title, user_story_path(userstory, :projekt_id => @projekt_id) %></h2>
         </div>
 
+        
+
 <% end %>
+
+<div class = "crud">
+			<p><%= link_to "Zurück", projekt_path(@projekt_id) %>
+</div>
