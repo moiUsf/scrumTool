@@ -16,10 +16,15 @@
 
  .container
  {
- 	margin: 10px;
+ 	margin-left: 10px;
  }
 
  .crud
  {
  	margin-top: 60px;
+ }
+
+ .navbar navbar-default
+ {
+ 	margin-bottom: 0px; 
  }
