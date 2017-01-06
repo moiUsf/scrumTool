@@ -4,7 +4,7 @@
 <% @sprints.each do |sprint| %>
 
     <div>
-      	<h2><%= link_to sprint.sprintnumber, sprint %></h2>
+      	<h2><span> Sprint </span><%= link_to sprint.sprintnumber, sprint_path(sprint, projekt_id: @projekt_id) %></h2>
     </div>
 
         

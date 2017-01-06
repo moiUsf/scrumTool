@@ -1,4 +1,6 @@
 class SprintsController < ApplicationController
+	before_action :find_sprint, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_user!
 	
 	def index
 		projekt = Projekt.find(params[:projekt_id])
@@ -13,6 +15,22 @@ class SprintsController < ApplicationController
 		
 	end
 
+	def create
+		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
+		@sprint = projekt.sprints.build(sprint_params) #UserStory.new(userstorie_params)
+    	if @sprint.save
+      		redirect_to sprints_path(projekt_id: @projekt_id)
+    	else
+     		render 'new'  
+    	end
+	end
+
+	def show
+		projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = projekt.id
+  	end
+
 
 
 
@@ -20,7 +38,7 @@ class SprintsController < ApplicationController
 
 
 	def find_sprint
-  		@userstory = Sprint.find(params[:id])
+  		@sprint = Sprint.find(params[:id])
 	end
 
 	def sprint_params

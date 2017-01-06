@@ -1,0 +1,9 @@
+<h2><span> Sprint </span> <%=@sprint.sprintnumber%></h2>
+
+
+<div class=crud>
+	<%= link_to "Zurück", sprints_path(projekt_id: @projekt_id) %>
+	<%= link_to "Editieren", edit_sprint_path(@sprint, projekt_id: @projekt_id) %>
+	<%=link_to "Löschen", sprint_path(@sprint, projekt_id: @projekt_id), method: :delete, data: { confirm: "Bist du sicher ?"} %>
+	
+</div>
