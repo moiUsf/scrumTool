@@ -10,7 +10,7 @@
   		<div class="col-md-3">
   		 	<p>backlog</p>
   		 	<% @userstoriesBack.each do |userstorie| %> 
-  		 	<p><%= userstorie.title %></p>
+  		 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %>
   		 	<% end %>
 
   		</div>
@@ -18,7 +18,7 @@
   		<div class="col-md-3">
   		 	<p>In Progress</p> 
   		 	<% @userstoriesInPro.each do |userstorie| %> 
-  		 	<p><%= userstorie.title %></p>
+  		 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %>
   		 	<% end %>
   		 	
   		 	
@@ -27,7 +27,7 @@
   		<div class="col-md-3"> 
   			<p>Review</p> 
   			<% @userstoriesRev.each do |userstorie| %> 
-  		 	<p><%= userstorie.title %></p>
+  		 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %>
   		 	<% end %>
   		 	
   		</div>
@@ -35,7 +35,7 @@
   		<div class="col-md-3"> 
   			<p>Done</p> 
   			<% @userstoriesDone.each do |userstorie| %> 
-  		 	<p><%= userstorie.title %></p>
+  		 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %>
   		 	<% end %>
   			
   		 	
