@@ -1,16 +1,52 @@
 <h1>My Scrumboard ...</h1>
 
 
-<% @userstories.each do |userstorie| %>
 
-    <div>
-      	<h2><span> Sprint </span><%= userstorie.title %></h2>
-    </div>
+
+
+
+    <div class="row">
+
+  		<div class="col-md-3">
+  		 	<p>backlog</p>
+  		 	<% @userstoriesBack.each do |userstorie| %> 
+  		 	<p><%= userstorie.title %></p>
+  		 	<% end %>
+
+  		</div>
+
+  		<div class="col-md-3">
+  		 	<p>In Progress</p> 
+  		 	<% @userstoriesInPro.each do |userstorie| %> 
+  		 	<p><%= userstorie.title %></p>
+  		 	<% end %>
+  		 	
+  		 	
+  		</div>
+
+  		<div class="col-md-3"> 
+  			<p>Review</p> 
+  			<% @userstoriesRev.each do |userstorie| %> 
+  		 	<p><%= userstorie.title %></p>
+  		 	<% end %>
+  		 	
+  		</div>
+
+  		<div class="col-md-3"> 
+  			<p>Done</p> 
+  			<% @userstoriesDone.each do |userstorie| %> 
+  		 	<p><%= userstorie.title %></p>
+  		 	<% end %>
+  			
+  		 	
+  		</div>
+
+	</div>
 
         
 
-<% end %>
+
 
 <div class = "crud">
-	<p> <%= link_to "Zurück", sprint_path(@sprint_id) %>
+	<p> <%= link_to "Zurück", sprint_path(id: @sprint_id, projekt_id: @projekt_id) %>
 </div>

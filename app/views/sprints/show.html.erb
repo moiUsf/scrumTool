@@ -3,7 +3,7 @@
 
 <div>
 	<p><%= link_to "Sprint Planning", root_path %></p>
-	<p><%= link_to "Scrum Board", scrumboards_path(sprintnumber: @sprint.sprintnumber) %></p>
+	<p><%= link_to "Scrum Board", scrumboards_path(sprintnumber: @sprint.sprintnumber, projekt_id: @projekt_id ) %></p>
 	<p><%= link_to "Sprint Review", root_path %></p>
 	<p><%= link_to "Sprint Retrospective", root_path %></p>
 </div>
