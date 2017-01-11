@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170106155559) do
+ActiveRecord::Schema.define(version: 20170111144936) do
 
   create_table "product_backlogs", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 20170106155559) do
     t.integer  "user_id"
   end
 
+  create_table "requires", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "sprint_id"
+    t.integer  "projekt_id"
+  end
+
   create_table "sprints", force: :cascade do |t|
     t.string   "sprintnumber"
     t.datetime "created_at",   null: false
@@ -36,10 +45,11 @@ ActiveRecord::Schema.define(version: 20170106155559) do
   create_table "user_stories", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "projekt_id"
-    t.integer  "sprint_id"
+    t.string   "status"
+    t.string   "sprintnumber"
   end
 
   create_table "users", force: :cascade do |t|

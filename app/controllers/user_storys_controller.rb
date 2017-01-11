@@ -70,6 +70,6 @@ class UserStorysController < ApplicationController
 	end
 
 	def userstorie_params
-		params.require(:user_story).permit(:title, :description, :projekt_id)
+		params.require(:user_story).permit(:title, :description, :projekt_id, :sprintnumber, :status)
 	end
 end

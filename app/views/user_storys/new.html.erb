@@ -1,9 +1,18 @@
 <h1> neue userStory anlegen </h1>
 
 <%= simple_form_for @user_stories, url: user_storys_path(projekt_id: @projekt_id)  do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
+  <%= f.input :title, label: 'Titel' %>
+  <%= f.input :description, label: 'Beschreibung' %>
+  <%= f.input :sprintnumber, placeholder: 'Sprintnummer'%>
+
+  <div class="checkbox">
+  <%= f.collection_radio_buttons :status, [['backlog', 'Backlog'] ,['inProgress', 'In Progress'] ,['toBeDisscussed', 'To be Disscussed'] ,['review', 'Review'] ,['done', 'Done']],:first, :last %> 
+  </div>
+
+
+  <div class="button">
   <%= f.button :submit, "Anlegen" %>
+  </div>
 <% end %>
 
 <div class = "crud">
