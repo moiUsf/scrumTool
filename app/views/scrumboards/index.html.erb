@@ -1,1 +1,16 @@
 <h1>My Scrumboard ...</h1>
+
+
+<% @userstories.each do |userstorie| %>
+
+    <div>
+      	<h2><span> Sprint </span><%= userstorie.title %></h2>
+    </div>
+
+        
+
+<% end %>
+
+<div class = "crud">
+	<p> <%= link_to "Zurück", sprint_path(@sprint_id) %>
+</div>
