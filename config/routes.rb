@@ -8,4 +8,6 @@ Rails.application.routes.draw do
   resources :projekts
   resources :user_storys 
   resources :sprints
+  resources :scrumboards
+
 end
