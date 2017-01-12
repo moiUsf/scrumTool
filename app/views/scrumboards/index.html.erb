@@ -8,7 +8,7 @@
     <div class="row">
 
   		<div class="col-md-3 list">
-  		 	<p>backlog</p>
+  		 	<p class="ptitle">Backlog</p>
         <% if @userstoriesBack.count > 0  %>
           <div class="listcard">
       		 	<% @userstoriesBack.each do |userstorie| %>
@@ -19,7 +19,7 @@
   		</div>
 
   		<div class="col-md-3 list">
-  		 	<p>In Progress</p>
+  		 	<p class="ptitle">In Progress</p>
          <% if @userstoriesInPro.count > 0  %>
           <div class="listcard">
       		 	<% @userstoriesInPro.each do |userstorie| %> 
@@ -30,7 +30,7 @@
   		</div>
 
   		<div class="col-md-3 list"> 
-  			<p>Review</p> 
+  			<p class="ptitle">Review</p> 
         <% if @userstoriesRev.count > 0  %>
           <div class="listcard">
       			<% @userstoriesRev.each do |userstorie| %> 
@@ -41,7 +41,7 @@
   		</div>
 
   		<div class="col-md-3 list"> 
-  			<p>Done</p>
+  			<p class="ptitle">Done</p>
         <% if @userstoriesDone.count > 0  %> 
             <div class="listcard">
         			<% @userstoriesDone.each do |userstorie| %> 
