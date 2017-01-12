@@ -3,12 +3,11 @@
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
 	box-sizing: border-box;
 	width: 100%;
-	height: 235px;
 	text-align: left;
 	font: bold 16px sans-serif;
 
-	padding: 55px 50px;
-	position: absolute;
+	padding: 20px;
+	position: fixed;
 	bottom: 0;
 }
 
@@ -22,7 +21,7 @@
 /* Footer left */
 
 .footer-distributed .footer-left{
-	width: 40%;
+	width: 33%;
 }
 
 /* The company logo */
@@ -62,7 +61,7 @@
 /* Footer Center */
 
 .footer-distributed .footer-center{
-	width: 35%;
+	width: 33%;
 }
 
 .footer-distributed .footer-center i{
@@ -106,7 +105,7 @@
 /* Footer Right */
 
 .footer-distributed .footer-right{
-	width: 20%;
+	width: 33%;
 }
 
 .footer-distributed .footer-company-about{
@@ -145,6 +144,50 @@
 	margin-right: 3px;
 	margin-bottom: 5px;
 }
+
+.footer-center div {
+	line-height: 38px;
+}
+
+.footer-center .fa:before {
+	position: relative;
+	top: -6px;
+}
+
+.footer-distributed .footer-center i{
+	width: 28px;
+	height: 28px;
+	font-size: 20px;
+	margin: 5px;
+}
+
+.footer-distributed .footer-center p{
+	line-height: 13px;
+	font-size: 13px;
+}
+
+.footer-distributed .footer-icons
+{
+	margin-top: 12px;
+}
+
+.footer-distributed .footer-company-about span
+{
+	margin-bottom: 10px;
+}
+
+.phone p
+{
+	position: relative;
+	top: 3px;
+}
+
+
+
+
+
+
+
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
