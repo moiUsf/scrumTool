@@ -7,38 +7,48 @@
 
     <div class="row">
 
-  		<div class="col-md-3">
+  		<div class="col-md-3 list">
   		 	<p>backlog</p>
-  		 	<% @userstoriesBack.each do |userstorie| %> 
-  		 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %>
-  		 	<% end %>
-
+        <% if @userstoriesBack.count > 0  %>
+          <div class="listcard">
+      		 	<% @userstoriesBack.each do |userstorie| %>
+      		 	  <p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %></p>
+            <% end %>
+          </div>
+        <% end %>
   		</div>
 
-  		<div class="col-md-3">
-  		 	<p>In Progress</p> 
-  		 	<% @userstoriesInPro.each do |userstorie| %> 
-  		 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %>
+  		<div class="col-md-3 list">
+  		 	<p>In Progress</p>
+         <% if @userstoriesInPro.count > 0  %>
+          <div class="listcard">
+      		 	<% @userstoriesInPro.each do |userstorie| %> 
+      		 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %></p>
+      		 	<% end %>
+    		 	</div>
   		 	<% end %>
-  		 	
-  		 	
   		</div>
 
-  		<div class="col-md-3"> 
+  		<div class="col-md-3 list"> 
   			<p>Review</p> 
-  			<% @userstoriesRev.each do |userstorie| %> 
-  		 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %>
-  		 	<% end %>
-  		 	
+        <% if @userstoriesRev.count > 0  %>
+          <div class="listcard">
+      			<% @userstoriesRev.each do |userstorie| %> 
+      		 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %></p>
+      		 	<% end %>
+    		 	</div>
+         <% end %> 
   		</div>
 
-  		<div class="col-md-3"> 
-  			<p>Done</p> 
-  			<% @userstoriesDone.each do |userstorie| %> 
-  		 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %>
-  		 	<% end %>
-  			
-  		 	
+  		<div class="col-md-3 list"> 
+  			<p>Done</p>
+        <% if @userstoriesDone.count > 0  %> 
+            <div class="listcard">
+        			<% @userstoriesDone.each do |userstorie| %> 
+        		 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %></p>
+        		 	<% end %>
+            </div>
+           <% end %> 
   		</div>
 
 	</div>
