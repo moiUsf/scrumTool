@@ -18,6 +18,12 @@
  {
  	background-color: #cecece;
  }
+
+ a
+{
+	color: #428bca;
+}
+
  .navbar-default .navbar-brand 
  {
  	color: #428bca;
