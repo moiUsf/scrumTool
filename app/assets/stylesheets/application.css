@@ -16,11 +16,15 @@
 
  html
  {
- 	background-color: #999;
+ 	background-color: #cecece;
+ }
+ .navbar-default .navbar-brand 
+ {
+ 	color: #428bca;
  }
  .container
  {
- 	background-color: #999;
+ 	background-color: #cecece;
  	margin-left: 0px;
  	margin-bottom: 255px;
  	padding-right: 0px;
