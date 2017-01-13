@@ -31,9 +31,10 @@ class PlanpokersController < ApplicationController
 		@estimations2 = @estimations[1]
 
 
-		if @estimations1 = @estimations2
+		if @estimations1 == @estimations2
 			redirect_to pokersuccess_path(userstory_id: @userstory_id)
 		else
+			flash[:notice] = "Die Einschätzungen waren unterschiedlich, diskutiren Sie warum, danach nochmal einschätzen"
 			redirect_to createfields_path(userstory_id: @userstory_id, projekt_id: @projekt_id, playernumber: @playernumber)
 		end
 	
