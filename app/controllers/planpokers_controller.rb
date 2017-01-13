@@ -32,7 +32,7 @@ class PlanpokersController < ApplicationController
 
 
 		if @estimations1 == @estimations2
-			redirect_to pokersuccess_path(userstory_id: @userstory_id)
+			redirect_to pokersuccess_path(userstory_id: @userstory_id, projekt_id: @projekt_id)
 		else
 			flash[:notice] = "Die Einschätzungen waren unterschiedlich, diskutiren Sie warum, danach nochmal einschätzen"
 			redirect_to createfields_path(userstory_id: @userstory_id, projekt_id: @projekt_id, playernumber: @playernumber)
@@ -42,6 +42,7 @@ class PlanpokersController < ApplicationController
 
 	
 	def pokersuccess
+		@projekt_id = params[:projekt_id]
 
 	end
 
