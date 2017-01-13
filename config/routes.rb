@@ -9,6 +9,14 @@ Rails.application.routes.draw do
   resources :user_storys 
   resources :sprints
   resources :scrumboards
-  resources :planpokers
+  resources :planpokers 
+
+  #get '/createfields', to: "planpokers#createfields"
+  post '/createfields', to: "planpokers#createfields"
+
+
+  
+
+  
 
 end
