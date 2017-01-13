@@ -15,6 +15,15 @@ Rails.application.routes.draw do
   post '/createfields', to: "planpokers#createfields"
 
 
+  get '/checkpoker', to: "planpokers#checkpoker"
+  post '/checkpoker', to: "planpokers#checkpoker"
+
+
+  get '/pokersuccess', to: "planpokers#pokersuccess"
+  post '/pokersuccess', to: "planpokers#pokersuccess"
+
+
+
   
 
   
