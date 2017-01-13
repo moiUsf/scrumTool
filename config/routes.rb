@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :scrumboards
   resources :planpokers 
 
-  #get '/createfields', to: "planpokers#createfields"
+  get '/createfields', to: "planpokers#createfields"
   post '/createfields', to: "planpokers#createfields"
 
 

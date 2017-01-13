@@ -25,6 +25,7 @@
 		<div class="col-md-1">
 			<%= form_tag(:action => 'createfields') do %>
   			<%= text_field_tag :playernumber, params[:playernumber], class: "form-control", type: "number", min: "2", value: "2"%>
+  			<%= hidden_field_tag "projekt_id", @projekt_id %> %>
   			<%= submit_tag "Submit" %>
 			<% end %>
 		</div>
