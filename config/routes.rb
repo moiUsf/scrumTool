@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :user_storys 
   resources :sprints
   resources :scrumboards
+  resources :planpokers
 
 end

@@ -1,15 +1,19 @@
 <h1>My UserStorys ...</h1>
 <button type="button" class="btn btn-default"><%= link_to "Neue UserStory", new_user_story_path(projekt_id: @projekt_id) %></button>
 
-<% @userstorys.each do |userstory| %>
+<div class="row">
 
-        <div>
-          	<h2><%= link_to userstory.title, user_story_path(userstory, projekt_id: @projekt_id) %></h2>
-        </div>
-
-        
-
-<% end %>
+  		<div class="col-md-2 list">
+  		 	<p class="ptitle">Backlog</p>
+        	<% if @userstorys.count > 0  %>
+          		<div class="listcard">
+	      		 	<% @userstorys.each do |userstorie| %>
+	      		 	 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %></p>
+	            	<% end %>
+        		</div>
+        	<% end %>
+  		</div>
+</div>
 
 <div class = "crud">
 			<p><%= link_to "Zurück", projekt_path(@projekt_id) %>
