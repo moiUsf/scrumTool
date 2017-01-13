@@ -1,4 +1,49 @@
-<h1> create fields for name and Estimation </h1>
+<h1> User Story - Poker planning </h1>
 
-<h2> <%= @playernumber %> </h2>
-<h2> <%= @projekt_id %>
+<h2> <% @playernumber %> </h2>
+<h2> <% @projekt_id %> </h2>
+
+<div class="row">
+
+  		<div class="col-md-2 list">
+  		 	<p class="ptitle">User Story</p>
+
+          		<div class="listcard">
+	      		 	
+	      		 	 	<p><%= @userstory.id %> - <%= link_to @userstory.title, user_story_path(@userstory, projekt_id: @projekt_id) %></p>
+
+        		</div>
+ 
+  		</div>
+
+  		
+		<%= form_tag(:action => 'createfields') do %>
+
+				<div class="col-md-2">
+					<label> Spieler Namen eingeben bitte </label>
+					<% @number = @playernumber + 1 %>
+					<% @playernumber.times do %>
+						<% @number = @playernumber - 1 %>
+			  			<%= text_field_tag "playername[]", params[:playername], class: "form-control", required: "true", placeholder: 'Name eingeben...' %>
+		  			<% end %>
+				</div>
+
+				<div class="col-md-2">
+					<label> Dauereischätzung eingeben bitte </label>
+					<% @number = @playernumber + 1 %>
+					<% @playernumber.times do %>
+						<% @number = @playernumber - 1 %>
+			  			<%= text_field_tag "estimation[]", params[:estimation], class: "form-control", required: "true", placeholder: 'Einschätzung eingeben...' %>
+		  			<% end %>
+
+		  			<%= hidden_field_tag "projekt_id", @projekt_id %>
+		  			<%= hidden_field_tag "userstory_id", @userstory_id %>
+		  			<%= submit_tag "Submit", class: "btn btn-default" %>
+				</div>
+		<% end %>
+
+</div>
+
+<div class = "crud">
+			<p><%= link_to "Zurück", planpokers_path(projekt_id: @projekt_id) %>
+</div>
