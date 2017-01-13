@@ -1,8 +1,17 @@
 class PlanpokersController < ApplicationController
+	rescue_from ActiveRecord::RecordNotFound, with: :dude_where_is_my_record
+
+	def dude_where_is_my_record
+		@projekt_id = params[:projekt_id]
+		@userstory_id = params[:userstory_id]
+    	flash[:notice] = "Dude where is my record !!!! no User Story with id = " + @userstory_id + "  ;-("
+    	redirect_to planpokers_path(projekt_id: @projekt_id)
+  	end
+
 	def index
 		@projekt = Projekt.find(params[:projekt_id])
 		@projekt_id = params[:projekt_id]
-		@userstories = @projekt.user_stories
+		@userstories = @projekt.user_stories.where(estimation: nil)
 	end
 
 	def createfields
@@ -11,6 +20,14 @@ class PlanpokersController < ApplicationController
 		@projekt = Projekt.find(params[:projekt_id])
 		@userstory_id = params[:userstory_id].to_i
 		@userstory = UserStory.find(@userstory_id)
+
+		if @userstory.estimation != nil
+			flash[:notice] = "Die User Story wurde schon eingeschätzt!! bitte nur vom Backlog auswählen"
+			redirect_to planpokers_path(projekt_id: @projekt_id)
+
+		else
+			render 'createfields'
+		end
 
 
 	end
@@ -27,12 +44,15 @@ class PlanpokersController < ApplicationController
 		@playername2 = @playernames[1]
 
 		@estimations  = params[:estimations] 
-		@estimations1 = @estimations[0]
-		@estimations2 = @estimations[1]
+		@estimation1 = @estimations[0]
+		@estimation2 = @estimations[1]
 
 
 		if @estimations1 == @estimations2
-			redirect_to pokersuccess_path(userstory_id: @userstory_id, projekt_id: @projekt_id)
+			@userstory = UserStory.find(@userstory_id)
+			@userstory.estimation = @estimation1
+			@userstory.save
+			redirect_to pokersuccess_path(userstory_id: @userstory_id, projekt_id: @projekt_id, estimation: @estimation1)
 		else
 			flash[:notice] = "Die Einschätzungen waren unterschiedlich, diskutiren Sie warum, danach nochmal einschätzen"
 			redirect_to createfields_path(userstory_id: @userstory_id, projekt_id: @projekt_id, playernumber: @playernumber)
