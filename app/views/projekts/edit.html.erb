@@ -1,6 +1,7 @@
 <h1>Projekt editieren </h1>
-
-<%= simple_form_for @projekt do |f| %>
-  <%= f.input :name, label: "Projektname" %>
-  <%= f.button :submit, "Editieren" %>
-<% end %>
+<div class = "col-md-3">
+	<%= simple_form_for @projekt do |f| %>
+	  <%= f.input :name, label: "Projektname" %>
+	  <%= f.button :submit, "Editieren" %>
+	<% end %>
+</div>
