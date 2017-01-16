@@ -48,7 +48,7 @@ class PlanpokersController < ApplicationController
 		@estimation2 = @estimations[1]
 
 
-		if @estimations1 == @estimations2
+		if @estimation1 == @estimation2
 			@userstory = UserStory.find(@userstory_id)
 			@userstory.estimation = @estimation1
 			@userstory.save
