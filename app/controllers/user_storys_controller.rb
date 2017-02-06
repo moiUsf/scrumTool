@@ -5,8 +5,8 @@ class UserStorysController < ApplicationController
 
 	def index
 
-		projekt = Projekt.find(params[:projekt_id])
-		@projekt_id = projekt.id
+		@projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = @projekt.id
 		@userstorys = projekt.user_stories
 		
 		 

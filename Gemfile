@@ -38,7 +38,7 @@ gem 'devise'
 
 gem 'awesome_print'
 
-
+gem 'chartkick'
 
 
 
