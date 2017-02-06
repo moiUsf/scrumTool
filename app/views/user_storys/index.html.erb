@@ -8,7 +8,13 @@
         	<% if @userstorys.count > 0  %>
           		<div class="listcard">
 	      		 	<% @userstorys.each do |userstorie| %>
-	      		 	 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %></p>
+	      		 	 	<p><%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %> <br>
+                  <span class = "status"><%= userstorie.status %></span>
+                  <%if userstorie.sprintnumber != "" %>
+                    <span class = "sprintnumber">sprint: <%= userstorie.sprintnumber %></span>
+                  <% end %>
+                </p>
+
 	            	<% end %>
         		</div>
         	<% end %>
