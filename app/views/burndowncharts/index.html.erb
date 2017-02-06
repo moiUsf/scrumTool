@@ -1,1 +1,3 @@
 <h1> Burn-Down-Chart - <%= link_to @projekt_name, projekt_path(@projekt)%></h1>
+
+<%= line_chart UserStory.group_by_day(:estimation).count %>
