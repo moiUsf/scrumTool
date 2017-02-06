@@ -35,6 +35,8 @@ class UserStorysController < ApplicationController
 	def show
 		projekt = Projekt.find(params[:projekt_id])
 		@projekt_id = projekt.id
+		@finished_at = params[:finished_at]
+		@started_at = params[:started_at]
   	end
 
   	def edit
@@ -43,8 +45,16 @@ class UserStorysController < ApplicationController
 	end
 
 	def update
+
 		projekt = Projekt.find(params[:projekt_id])
 		@projekt_id = projekt.id
+		
+		 if @userstory.status == 'done' && @userstory.finished_at == nil
+  			@userstory.finished_at = DateTime.now
+  			@userstory.save
+  		 end
+		
+		
 		if @userstory.update(userstorie_params)
 			redirect_to user_story_path(@userstory,projekt_id: @projekt_id)
 		else

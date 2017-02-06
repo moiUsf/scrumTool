@@ -1,6 +1,14 @@
 <h2><%= @userstory.title %></h2>
 <h2><%= @userstory.description %></h2>
 
+<%if @finished_at != nil %>
+	<p>finished ==> <%= @finished_at %> </p>
+<% end %>
+
+<%if @started_at != nil %>
+	<p>start ==>  <%= @started_at %> </p>
+<% end %>
+
 
 <div class=crud>
 	<%= link_to "Zurück", user_storys_path(projekt_id: @projekt_id) %>
