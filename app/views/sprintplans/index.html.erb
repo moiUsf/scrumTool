@@ -12,7 +12,6 @@
 	      		 	 		<%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %> 
 	      		 	 		<%if userstorie.sprintnumber != "" %>
 	      		 	 			<% if userstorie.sprintnumber != ("" || nil) %>
-	      		 	 			
 	      		 	 				<span class = "sprintnumber">sprint: <%= userstorie.sprintnumber %></span>
 	      		 	 			<% end %>
 	      		 	 		<% end %>
@@ -49,5 +48,5 @@
 
 
 <div class = "crud">
-			<p><%= link_to "Zurück", projekt_path(@projekt_id) %>
+			<p><%= link_to "Zurück", sprint_path(projekt_id: @projekt_id, id: @sprint_id) %>
 </div>

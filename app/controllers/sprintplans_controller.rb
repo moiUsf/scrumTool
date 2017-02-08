@@ -6,7 +6,7 @@ class SprintplansController < ApplicationController
 		@projekt_id = params[:projekt_id]
 		@sprint_id = params[:sprint_id]
 		@userstory_id = params[:userstory_id]
-    	flash[:notice] = "Dude where is my record !!!! no User Story with id = " + @userstory_id + "  ;-("
+    	flash[:notice] = "Dude where is my record !!!! no User Story with id = " + @userstory_id.to_s + "  ;-("
     	redirect_to sprintplans_path(sprint_id: @sprint_id, projekt_id: @projekt_id)
   	end
 
@@ -31,6 +31,7 @@ class SprintplansController < ApplicationController
 		@sprint_id = params[:sprint_id]
 		@projekt_id = params[:projekt_id] 
 		@projekt = Projekt.find(params[:projekt_id])
+		@projekt_name = @projekt.name
 		@userstory_id = params[:userstory_id].to_i
 		@userstory = UserStory.find(@userstory_id)
 		@userstories = @projekt.user_stories
@@ -42,7 +43,7 @@ class SprintplansController < ApplicationController
 		else
 			@userstory.sprintnumber = @sprintnumber
 			@userstory.save
-			render 'setsprint', projekt_id: @projekt_id
+			render 'setsprint', projekt_id: @projekt_id, sprint_id: @sprint_id
 		end
 	end
 end

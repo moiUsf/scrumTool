@@ -26,7 +26,11 @@
         <% end %>
 
         <% if current_user.present? %>
-        <li><%= link_to 'Projekt', root_path %></li>
+          <li><%= link_to 'Projekt', root_path %></li>
+
+        <% if @projekt_id %>
+          <li><%= link_to 'sprint', sprints_path(projekt_id: @projekt_id) %></li>
+        <% end %>
         
         
        
