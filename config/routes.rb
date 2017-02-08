@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources :scrumboards
   resources :planpokers 
   resources :burndowncharts
+  resources :sprintplans
+  resources :sprintreviews
+  resources :sprintretros
+  resources :roadmaps
 
   get '/createfields', to: "planpokers#createfields"
   post '/createfields', to: "planpokers#createfields"

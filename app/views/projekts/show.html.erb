@@ -5,7 +5,7 @@
 <p><%= link_to "Sprints", sprints_path(projekt_id: @projekt.id) %></p>
 <p><%= link_to "Plannigs Poker", planpokers_path(projekt_id: @projekt.id) %></p>
 <p><%= link_to "Burn-down-chart", burndowncharts_path(@projekt) %></p>
-<p><%= link_to "Roadmap", root_path %></p>
+<p><%= link_to "Roadmap", roadmaps_path(@projekt) %></p>
 
 <div class=crud>
 	<%= link_to "Zurück", root_path %>

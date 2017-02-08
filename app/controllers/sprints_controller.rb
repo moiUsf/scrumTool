@@ -3,8 +3,8 @@ class SprintsController < ApplicationController
 	before_action :authenticate_user!
 	
 	def index
-		projekt = Projekt.find(params[:projekt_id])
-		@projekt_id = projekt.id
+		@projekt = Projekt.find(params[:projekt_id])
+		@projekt_id = @projekt.id
 		@sprints = Sprint.where(projekt_id: @projekt_id)
 	end
 
