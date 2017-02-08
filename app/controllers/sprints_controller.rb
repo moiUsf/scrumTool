@@ -26,9 +26,10 @@ class SprintsController < ApplicationController
     	end
 	end
 
-	def show
+	def show 
 		projekt = Projekt.find(params[:projekt_id])
 		@projekt_id = projekt.id
+		@sprint_id = params[:id] 
   	end
 
   	def edit

@@ -19,7 +19,7 @@
 
   			<div class="col-md-2">
 				<label> User story nummer eingeben </label>
-	  			<%= text_field_tag :userstory_id, params[:userstory_id], class: "form-control", required: "true", type: "number" %>	
+	  			<%= text_field_tag :userstory_id, params[:userstory_id], class: "form-control", required: "true", type: "number", min: "1" %>	
 
   			</div>
 

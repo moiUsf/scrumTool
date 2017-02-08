@@ -27,7 +27,8 @@ Rails.application.routes.draw do
   get '/pokersuccess', to: "planpokers#pokersuccess"
   post '/pokersuccess', to: "planpokers#pokersuccess"
 
-
+  get '/setsprint', to: "sprintplans#setsprint"
+  post '/setsprint', to: "sprintplans#setsprint"
 
   
 
