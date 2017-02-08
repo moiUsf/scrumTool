@@ -30,6 +30,12 @@ Rails.application.routes.draw do
   get '/setsprint', to: "sprintplans#setsprint"
   post '/setsprint', to: "sprintplans#setsprint"
 
+
+  get '/setreview', to: "sprintreviews#setreview"
+  post '/setreview', to: "sprintreviews#setreview"
+
+
+
   
 
   
