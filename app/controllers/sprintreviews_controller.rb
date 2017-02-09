@@ -24,9 +24,6 @@ class SprintreviewsController < ApplicationController
 	end
 
 	def setreview
-		
-
-
 
 		@sprint_id = params[:sprint_id]
 		@sprintnumber = Sprint.find(@sprint_id).sprintnumber
@@ -44,13 +41,13 @@ class SprintreviewsController < ApplicationController
 			#redirect_to sprintplans_path(sprint_id: @sprint_id, projekt_id: @projekt_id)
 		@userstoriesToRev = @projekt.user_stories.where(status: "done").where(sprintnumber: @sprintnumber)
 		unless @userstoriesToRev.include?(@userstory)
-			flash[:notice] = "Die User Story gehört nicht den aktuellen Sprint, bitte nur die User Story links auswählen"
+			flash[:notice] = "Die User Story gehört nicht in den aktuellen Sprint, bitte nur die User Stories links auswählen."
 			redirect_to sprintreviews_path(sprint_id: @sprint_id, projekt_id: @projekt_id)
 		else
 			if @accepted == "false"
-				flash[:notice] = "Leider wurde die User Storie nicht abgenommen, versuche den Kunden zufrieden zu stellen"
+				flash[:notice] = "Leider wurde die User Story nicht abgenommen, versuche Sie den Kunden zufrieden zu stellen."
 			else	
-				flash[:notice] = "super gemacht, Die User Storie wurde abgenommen und archivierd"
+				flash[:notice] = "Super gemacht! Die User Story wurde abgenommen und archiviert."
 			end
 			@userstory.accepted = @accepted
 			@userstory.reviewcomment = @reviewcomment
