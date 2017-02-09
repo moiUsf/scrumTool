@@ -18,7 +18,11 @@ class SprintretrosController < ApplicationController
 		@sprint = Sprint.find(@sprint_id)
 		@sprint_number = @sprint.sprintnumber
 
-		@userstories = @projekt.user_stories.where(status: "done")
+		@userstories = @projekt.user_stories.where(sprintnumber: @sprint_number)
+		
+	end
+
+	def setretros
 		
 	end
 end

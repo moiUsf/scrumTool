@@ -1,8 +1,8 @@
-<h1> neue sprint anlegen </h1>
+<h1> Neue Sprint anlegen </h1>
 
 <%= simple_form_for @sprints, url: sprints_path(projekt_id: @projekt_id)  do |f| %>
-  <%= f.input :sprintnumber %>
-  <%= f.button :submit, "Anlegen" %>
+  <%= f.input :sprintnumber, label: 'Sprintnummer' %>
+  <%= f.button :submit, "Anlegen", label: 'erstellen'  %>
 <% end %>
 
 <div class = "crud">

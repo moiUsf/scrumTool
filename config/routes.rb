@@ -34,6 +34,9 @@ Rails.application.routes.draw do
   get '/setreview', to: "sprintreviews#setreview"
   post '/setreview', to: "sprintreviews#setreview"
 
+  
+  get '/setretros', to: "sprintretros#setretros"
+  post '/setretros', to: "sprintretros#setretros"
 
 
   

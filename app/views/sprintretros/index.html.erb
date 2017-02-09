@@ -1,1 +1,69 @@
 <h1><%= link_to @projekt_name, projekt_path(@projekt)%> - <%= link_to "Sprint "+ @sprint_number, sprint_path(projekt_id: @projekt_id, id: @sprint_id)%> -  Sprint Retrospective </h1>
+
+
+<div class="row">
+
+  		<div class="col-md-2 list">
+  		 	<p class="ptitle">Sprint Backlog</p>
+        	<% if @userstories.count > 0  %>
+          		<div class="listcard">
+	      		 	<% @userstories.each do |userstorie| %>
+	      		 	 	<p> 
+	      		 	 		<span class="userstory_id"><%= userstorie.id %> -  </span> 
+	      		 	 		<%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %> <br>
+	      		 	 		<%if userstorie.sprintnumber != "" %>
+	      		 	 			<% if userstorie.sprintnumber != ("" || nil) %>
+	      		 	 				<span class="badge">sprint: <%= userstorie.sprintnumber %></span>
+	      		 	 				<span class = "badge"><%= userstorie.status %></span>
+	      		 	 			<% end %>
+	      		 	 			<% if userstorie.accept
+	      		 	 		<% end %>
+	      		 	 	</p>
+	            	<% end %>
+        		</div>
+        	<% end %>
+  		</div>
+
+
+
+		
+			  		<%= form_tag(:action => 'setretros') do %>
+
+			  			<div class="col-md-2" class="form-group">
+							<label> Was wollen wir beibehalten? </label>
+							<%= text_area_tag 'reviewcomment', nil, class: 'form-control' %>
+							
+						</div>
+
+
+						<div class="col-md-2" class="form-group">
+							<label> Womit sollen wir aufhören? </label>
+							<%= text_area_tag 'reviewcomment', nil, class: 'form-control' %>
+							
+						</div>
+
+
+						<div class="col-md-2" class="form-group">
+							<label> was sollen wir zukünftig neu einführen </label>
+							<%= text_area_tag 'reviewcomment', nil, class: 'form-control' %>
+
+							<%= submit_tag "Bestätigen", class: "btn btn-default" %>
+							
+						</div>
+		
+
+						
+
+						
+					<% end %>
+
+</div>
+
+
+
+
+
+
+<div class = "crud">
+			<p><%= link_to "Zurück", sprint_path(projekt_id: @projekt_id, id: @sprint_id) %>
+</div>
