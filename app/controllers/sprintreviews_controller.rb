@@ -23,7 +23,7 @@ class SprintreviewsController < ApplicationController
 	end
 
 	def setreview
-		bam
+		
 		
 	end
 end

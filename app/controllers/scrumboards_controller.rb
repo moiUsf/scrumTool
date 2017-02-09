@@ -8,21 +8,25 @@ class ScrumboardsController < ApplicationController
 		@userstoriesBack = UserStory
 								.where(sprintnumber: @sprintnumber)
 								.where(status: "backlog")
+								.where(projekt_id: @projekt_id)
 
 
 		@userstoriesInPro = UserStory
 								.where(sprintnumber: @sprintnumber)
 								.where(status: "inProgress")
+								.where(projekt_id: @projekt_id)
 
 
 		@userstoriesRev = UserStory
 								.where(sprintnumber: @sprintnumber)
 								.where(status: "review")
+								.where(projekt_id: @projekt_id)
 
 
 		@userstoriesDone = UserStory
 								.where(sprintnumber: @sprintnumber)
 								.where(status: "done")
+								.where(projekt_id: @projekt_id)
 
 
 		

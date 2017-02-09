@@ -36,19 +36,21 @@
 
 			<div class="col-md-2">
 				<label> User Story vom Produktowner abgenommen ?</label>
-	  			<%= check_box_tag 'accepted', 'true' %>
-	  			<%= check_box_tag 'accepted', 'false' %>
+	  			ja <%= check_box_tag 'accepted', 'true' %>
+	  			nein<%= check_box_tag 'accepted', 'false' %>
 	  			<%= hidden_field_tag "projekt_id", @projekt_id %>
 	  			<%= hidden_field_tag "sprint_id", @sprint_id %>
 	  			
 			</div>
 
-			<div class="col-md-4" class="form-group">
+			<div class="col-md-9" class="form-group">
 				<label> User Story Informationen festhalten </label>
-				<%= text_area_tag 'post', :input_html => { :class => 'form-control' }  %>
+				<%= text_area_tag 'post', nil, class: 'form-control' %>
 
-				<%= submit_tag "Submit", class: "btn btn-default" %>
+				
 			</div>
+
+			<%= submit_tag "Submit", class: "btn btn-default" %>
 
 			
 		<% end %>
