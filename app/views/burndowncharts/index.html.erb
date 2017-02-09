@@ -1,35 +1,19 @@
-<h1> Burn-Down-Chart - <%= link_to @projekt_name, projekt_path(@projekt)%></h1>
+<h1><%= link_to @projekt_name, projekt_path(@projekt)%> -  Burn-Down-Chart</h1>
 
-<div class="col-xs-6">
-	<%= line_chart UserStory.group_by_day(:estimation).count, xtitle: "Iteration Timeline (days)", ytitle: "Sum of Task Estimates (hours)", colors: ["red", "#999"], curve: true, legend: true %>
-	
+
+<div class = "row">
+  <div class="col-md-4">
+  	<%= line_chart UserStory.group_by_day(:estimation).count, xtitle: "Iteration Timeline (days)", ytitle: "Sum of Task Estimates (hours)", colors: ["red", "#999"], curve: true, legend: true %>
+  	
+  </div>  
+
 </div>
 
-<div class="col-xs-6">
-	<%= line_chart [
-                   {name: "targets",
-                    data: [
-                        ["-2/3",0],
-                        [0,"2"]
-                    ]
-                   },
-               ],
-               library: {
-                   title: "ABC",
-                   subtitle: "XYZ",
-                   legend: "right",
-                   vAxis: {title: 'average'},
-                   trendlines: {
-                       "0"=> {
-        type: 'exponential',
-        visibleInLegend: true
-    }
-    }
-    }
-%>
 
 
-	
+
+<div class = "crud" id = "backLinkChart">
+      <p><%= link_to "Zurück", projekt_path(@projekt_id) %></p> 
 </div>
 
 

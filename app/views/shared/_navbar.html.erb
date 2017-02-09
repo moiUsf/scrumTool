@@ -16,20 +16,20 @@
       <ul class="nav navbar-nav">
 
         <% if current_user.present? %>
-           <li ><%= link_to "Logout,  #{current_user.email}", destroy_user_session_path,:id => "signout", method: :delete %></li>
+           <li ><%= link_to "Abmelden,  #{current_user.email}", destroy_user_session_path,:id => "signout", method: :delete %></li>
 
 
 
         <% else %>
-            <li><%= link_to 'Sign up', new_user_registration_path,:id => "signup1" %></li>
-            <li><%= link_to 'Sign in', new_user_session_path %></li>
+            <li><%= link_to 'Registrieren', new_user_registration_path,:id => "signup1" %></li>
+            <li><%= link_to 'Anmelden', new_user_session_path %></li>
         <% end %>
 
         <% if current_user.present? %>
           <li><%= link_to 'Projekte', root_path %></li>
 
         <% if @projekt_id %>
-          <li><%= link_to 'sprint', sprints_path(projekt_id: @projekt_id) %></li>
+          <li><%= link_to 'Sprint', sprints_path(projekt_id: @projekt_id) %></li>
         <% end %>
         
         

@@ -1,9 +1,9 @@
-<h1> Sprint Planning - <%= link_to @projekt_name, projekt_path(@projekt)%> - <%= link_to "Sprint "+ @sprint_number, sprint_path(projekt_id: @projekt_id, id: @sprint_id)%></h1>
+<h1><%= link_to @projekt_name, projekt_path(@projekt)%> - <%= link_to "Sprint "+ @sprint_number, sprint_path(projekt_id: @projekt_id, id: @sprint_id)%> - Sprint Planning </h1>
 
 <div class="row">
 
   		<div class="col-md-2 list">
-  		 	<p class="ptitle">Backlog</p>
+  		 	<p class="ptitle">Product Backlog</p>
         	<% if @userstories.count > 0  %>
           		<div class="listcard">
 	      		 	<% @userstories.each do |userstorie| %>
@@ -26,7 +26,7 @@
   		<%= form_tag(:action => 'setsprint') do %>
 
   			<div class="col-md-2">
-				<label> User story nummer eingeben </label>
+				<label> User Story Nummer eingeben: </label>
 	  			<%= text_field_tag :userstory_id, params[:userstory_id], class: "form-control", required: "true", type: "number", min: "1" %>	
 
   			</div>
@@ -34,11 +34,11 @@
 
 
 			<div class="col-md-2">
-				<label> sprintnummer eingeben </label>
+				<label> Sprint Nummer eingeben: </label>
 	  			<%= number_field_tag :sprintnumber, params[:sprintnumber], class: "form-control", type: "number",required: "false", min: "1", max: "10", value: "1"%>
 	  			<%= hidden_field_tag "projekt_id", @projekt_id %>
 	  			<%= hidden_field_tag "sprint_id", @sprint_id %>
-	  			<%= submit_tag "Submit", class: "btn btn-default" %>
+	  			<%= submit_tag "Zuordnen", class: "btn btn-default" %>
 			</div>
 		<% end %>
 		

@@ -1,9 +1,9 @@
-<h1>UserStory editieren </h1>
+<h1>User Story editieren </h1>
 
 <%= simple_form_for @userstory, url: user_story_path(:projekt_id => @projekt_id)  do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :sprintnumber, placeholder: 'Sprintnummer'%>
+  <%= f.input :title, label: 'Titel' %>
+  <%= f.input :description, label: 'Beschreibung' %>
+  <%= f.input :sprintnumber, label: 'Sprintnummer'%>
 
   <div class="checkbox">
   	<%= f.collection_radio_buttons :status, [['backlog', 'Backlog'] ,['inProgress', 'In Progress'], ['review', 'Review'] ,['done', 'Done']],:first, :last %> 

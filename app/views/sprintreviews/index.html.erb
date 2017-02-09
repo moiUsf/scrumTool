@@ -1,9 +1,9 @@
-<h1> Sprint Review - <%= link_to @projekt_name, projekt_path(@projekt)%> - <%= link_to "Sprint "+ @sprint_number, sprint_path(projekt_id: @projekt_id, id: @sprint_id)%></h1>
+<h1><%= link_to @projekt_name, projekt_path(@projekt)%> - <%= link_to "Sprint "+ @sprint_number, sprint_path(projekt_id: @projekt_id, id: @sprint_id)%> -  Sprint Review</h1>
 
 <div class="row">
 
   		<div class="col-md-2 list">
-  		 	<p class="ptitle">Backlog</p>
+  		 	<p class="ptitle">Sprint Backlog</p>
         	<% if @userstories.count > 0  %>
           		<div class="listcard">
 	      		 	<% @userstories.each do |userstorie| %>
@@ -27,7 +27,7 @@
 	  		<%= form_tag(:action => 'setreview') do %>
 
 	  			<div >
-					<label> User story nummer eingeben </label>
+					<label> User Story Nummer eingeben: </label>
 		  			<%= text_field_tag :userstory_id, params[:userstory_id], class: "form-control", required: "true", type: "number", min: "1" %>	
 
 	  			</div>
@@ -35,7 +35,7 @@
 
 
 				<div class = "acceptask">
-					<label> User Story vom Produktowner abgenommen ?</label>
+					<label> User Story vom Product Owner abgenommen?</label>
 		  			ja  <%= check_box_tag 'accepted', 'true' %>
 		  			nein  <%= check_box_tag 'accepted', 'false' %>
 		  			<%= hidden_field_tag "projekt_id", @projekt_id %>
@@ -47,10 +47,10 @@
 
 
 				<div class="col-md-2" class="form-group">
-					<label> User Story Informationen festhalten </label>
+					<label> User Story Informationen festhalten: </label>
 					<%= text_area_tag 'reviewcomment', nil, class: 'form-control' %>
 
-					<%= submit_tag "Submit", class: "btn btn-default" %>
+					<%= submit_tag "Bestätigen", class: "btn btn-default" %>
 					
 				</div>
 
@@ -81,5 +81,5 @@
 
 <div class = "crud">
 			<p><%= link_to "Zurück", sprint_path(projekt_id: @projekt_id, id: @sprint_id) %>
-			<p><%= link_to "Zum Sprint Überblick", setreview_path(projekt_id: @projekt_id, id: @sprint_id) %>
+		<!--	<p><%= link_to "Zum Sprint Überblick", setreview_path(projekt_id: @projekt_id, id: @sprint_id) %> -->
 </div>
