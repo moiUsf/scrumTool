@@ -24,5 +24,25 @@ class SprintretrosController < ApplicationController
 
 	def setretros
 		
+
+		@sprint_id = params[:sprint_id]
+		@projekt_id = params[:projekt_id]
+		@beibehalten = params[:beibehalten]
+		@aufhoeren = params[:aufhoeren]
+		@integrieren = params[:integrieren]
+
+
+		@sprint = Sprint.find(@sprint_id)
+		@sprint.beibehalten = @beibehalten
+		@sprint.aufhoeren = @aufhoeren
+		@sprint.integrieren = @integrieren
+
+		@sprint.save
+
+		flash[:notice] = "Der Sprint " + @sprint.sprintnumber + " ist damit abgeschlossen"
+
+
+			 redirect_to sprints_path(projekt_id: @projekt_id) 
+		
 	end
 end

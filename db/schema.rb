@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170208222224) do
+ActiveRecord::Schema.define(version: 20170209213217) do
 
   create_table "product_backlogs", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(version: 20170208222224) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "projekt_id"
+    t.text     "beibehalten"
+    t.text     "aufhoeren"
+    t.text     "integrieren"
   end
 
   create_table "user_stories", force: :cascade do |t|

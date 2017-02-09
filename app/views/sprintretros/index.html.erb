@@ -33,23 +33,27 @@
 
 			  			<div class="col-md-2" class="form-group">
 							<label> Was wollen wir beibehalten? </label>
-							<%= text_area_tag 'reviewcomment', nil, class: 'form-control' %>
+							<%= text_area_tag 'beibehalten', nil, class: 'form-control' %>
 							
 						</div>
 
 
 						<div class="col-md-2" class="form-group">
 							<label> Womit sollen wir aufhören? </label>
-							<%= text_area_tag 'reviewcomment', nil, class: 'form-control' %>
+							<%= text_area_tag 'aufhoeren', nil, class: 'form-control' %>
 							
 						</div>
 
 
 						<div class="col-md-2" class="form-group">
-							<label> was sollen wir zukünftig neu einführen </label>
-							<%= text_area_tag 'reviewcomment', nil, class: 'form-control' %>
+							<label> was sollen wir zukünftig neu einführen ?</label>
+							<%= text_area_tag 'integrieren', nil, class: 'form-control' %>
+
+							<%= hidden_field_tag "projekt_id", @projekt_id %>
+	  						<%= hidden_field_tag "sprint_id", @sprint_id %>
 
 							<%= submit_tag "Bestätigen", class: "btn btn-default" %>
+
 							
 						</div>
 		
