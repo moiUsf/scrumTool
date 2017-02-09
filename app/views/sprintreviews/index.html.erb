@@ -23,37 +23,41 @@
   		</div>
   		
 
-  		
-  		<%= form_tag(:action => 'setreview') do %>
+  		<div class="col-md-2">
+	  		<%= form_tag(:action => 'setreview') do %>
 
-  			<div class="col-md-2">
-				<label> User story nummer eingeben </label>
-	  			<%= text_field_tag :userstory_id, params[:userstory_id], class: "form-control", required: "true", type: "number", min: "1" %>	
+	  			<div >
+					<label> User story nummer eingeben </label>
+		  			<%= text_field_tag :userstory_id, params[:userstory_id], class: "form-control", required: "true", type: "number", min: "1" %>	
 
-  			</div>
+	  			</div>
 
 
 
-			<div class="col-md-2">
-				<label> User Story vom Produktowner abgenommen ?</label>
-	  			ja <%= check_box_tag 'accepted', 'true' %>
-	  			nein<%= check_box_tag 'accepted', 'false' %>
-	  			<%= hidden_field_tag "projekt_id", @projekt_id %>
-	  			<%= hidden_field_tag "sprint_id", @sprint_id %>
-	  			
-			</div>
+				<div class = "acceptask">
+					<label> User Story vom Produktowner abgenommen ?</label>
+		  			ja  <%= check_box_tag 'accepted', 'true' %>
+		  			nein  <%= check_box_tag 'accepted', 'false' %>
+		  			<%= hidden_field_tag "projekt_id", @projekt_id %>
+		  			<%= hidden_field_tag "sprint_id", @sprint_id %>
+		  		</div>
+		 </div>
+		  			
+				
 
-			<div class="col-md-9" class="form-group">
-				<label> User Story Informationen festhalten </label>
-				<%= text_area_tag 'post', nil, class: 'form-control' %>
+
+				<div class="col-md-2" class="form-group">
+					<label> User Story Informationen festhalten </label>
+					<%= text_area_tag 'Reviewcomment', nil, class: 'form-control' %>
+
+					<%= submit_tag "Submit", class: "btn btn-default" %>
+					
+				</div>
 
 				
-			</div>
 
-			<%= submit_tag "Submit", class: "btn btn-default" %>
-
-			
-		<% end %>
+				
+			<% end %>
 
 
 
@@ -61,23 +65,6 @@
 
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
