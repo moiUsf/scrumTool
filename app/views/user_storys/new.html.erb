@@ -1,20 +1,18 @@
-<h1> neue userStory anlegen </h1>
+<h1> Neue User Story erstellen </h1>
 
-<%= simple_form_for @user_stories, url: user_storys_path(projekt_id: @projekt_id)  do |f| %>
-  <%= f.input :title, label: 'Titel' %>
-  <%= f.input :description, label: 'Beschreibung' %>
-  <%= f.input :sprintnumber, placeholder: 'Sprintnummer'%>
-
-  <div class="checkbox">
-  <%= f.collection_radio_buttons :status, [['backlog', 'Backlog'] ,['inProgress', 'In Progress'], ['review', 'Review'] ,['done', 'Done']],:first, :last %> 
-  </div>
+    <%= simple_form_for @user_stories, url: user_storys_path(projekt_id: @projekt_id)  do |f| %>
+      <%= f.input :title, label: 'Titel' %>
+      <%= f.input :description, label: 'Beschreibung' %>
 
 
-  <div class="button">
-  <%= f.button :submit, "Anlegen" %>
-  </div>
-<% end %>
+
+
+      <div class="button">
+      <%= f.button :submit, "Erstellen" %>
+      </div>
+    <% end %> 
+
 
 <div class = "crud">
-			<p><%= link_to "Zurück", projekt_path(@projekt_id) %>
+			<p><%= link_to "Zurück", user_storys_path(projekt_id: @projekt_id) %>
 </div>

@@ -1,10 +1,10 @@
-<h1>My UserStorys ...</h1>
-<button type="button" class="btn btn-default"><%= link_to "Neue UserStory", new_user_story_path(projekt_id: @projekt_id) %></button>
+<h1>Product Backlog</h1>
+<button type="button" class="btn btn-default"><%= link_to "Neue User Story", new_user_story_path(projekt_id: @projekt_id) %></button>
 
 <div class="row">
 
   		<div class="col-md-2 list">
-  		 	<p class="ptitle">Backlog</p>
+  		 	<p class="ptitle">User Stories</p>
         	<% if @userstorys.count > 0  %>
           		<div class="listcard">
 	      		 	<% @userstorys.each do |userstorie| %>

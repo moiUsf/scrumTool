@@ -26,7 +26,7 @@
         <% end %>
 
         <% if current_user.present? %>
-          <li><%= link_to 'Projekt', root_path %></li>
+          <li><%= link_to 'Projekte', root_path %></li>
 
         <% if @projekt_id %>
           <li><%= link_to 'sprint', sprints_path(projekt_id: @projekt_id) %></li>
@@ -37,9 +37,9 @@
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" placeholder="">
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">Suchen</button>
       </form>
 
       <% end %>
@@ -47,7 +47,7 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to 'Profil', root_path %></li>
-        <li><%= link_to 'Option', root_path %></li>
+        <li><%= link_to 'Optionen', root_path %></li>
         
       </ul>
     </div><!-- /.navbar-collapse -->

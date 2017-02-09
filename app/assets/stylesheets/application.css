@@ -151,5 +151,20 @@ div .col-md-2 .btn-default
     height: 141px;
 }
 
+#new_user_story
+{
+    width: 300px;
+}
+
+#user_story_description
+{
+        height: 161px;
+}
+
+.button
+{
+    margin-top: 26px;
+}
+
 
 
