@@ -11,6 +11,7 @@ class SprintplansController < ApplicationController
   	end
 
 	def index
+		
 		@projekt = Projekt.find(params[:projekt_id])
 		@projekt_name = @projekt.name
 		@projekt_id = params[:projekt_id]
@@ -18,7 +19,7 @@ class SprintplansController < ApplicationController
 		@sprint = Sprint.find(@sprint_id)
 		@sprint_number = @sprint.sprintnumber
 
-		@userstories = @projekt.user_stories.where("sprintnumber = 1 or sprintnumber = '""' or sprintnumber is NULL ")
+		@userstories = @projekt.user_stories.where(sprintnumber: @sprint_number).or(@projekt.user_stories.where("sprintnumber = '""' or sprintnumber is NULL "))
 		
 	end
 
