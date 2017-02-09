@@ -12,11 +12,13 @@
 	      		 	 		<span class="userstory_id"><%= userstorie.id %> -  </span> 
 	      		 	 		<%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %> <br>
 	      		 	 		<%if userstorie.sprintnumber != "" %>
-	      		 	 			<% if userstorie.sprintnumber != ("" || nil) %>
+	      		 	 			<% if userstorie.sprintnumber != nil %>
 	      		 	 				<span class="badge">sprint: <%= userstorie.sprintnumber %></span>
 	      		 	 				<span class = "badge"><%= userstorie.status %></span>
 	      		 	 			<% end %>
-	      		 	 			<% if userstorie.accept
+	      		 	 			<% if userstorie.accepted %>
+	      		 	 				<span class = "badge"><%= userstorie.accepted %></span>
+	      		 	 			<% end %>
 	      		 	 		<% end %>
 	      		 	 	</p>
 	            	<% end %>

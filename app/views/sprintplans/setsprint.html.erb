@@ -1,4 +1,7 @@
-<h1> Sprint Planning - <%= link_to @projekt_name, projekt_path(@projekt)%> - <%= link_to "Sprint "+ @sprintnumber.to_s, sprint_path(projekt_id: @projekt_id, id: @sprint_id)%></h1>
+<!--
+
+
+<h1><%= link_to @projekt_name, projekt_path(@projekt)%> - <%= link_to "Sprint "+ @sprint_number.to_s, sprint_path(projekt_id: @projekt_id, id: @sprint_id)%> - Sprint Planning </h1>
 
 <div class="row">
 
@@ -10,7 +13,7 @@
 	      		 	 	<p> <span class="userstory_id"><%= userstorie.id %> -  </span> 
 	      		 	 		<%= link_to userstorie.title, user_story_path(userstorie, projekt_id: @projekt_id) %> 
 	      		 	 		<%if userstorie.sprintnumber != "" %>
-	      		 	 			<% if userstorie.sprintnumber != ("" || nil) %>
+	      		 	 			<% if userstorie.sprintnumber != nil %>
 	      		 	 				<span class = "sprintnumber">sprint: <%= userstorie.sprintnumber %></span>
 	      		 	 			<% end %>
 	      		 	 		<% end %>
@@ -36,7 +39,7 @@
 	  			<%= number_field_tag :sprintnumber, params[:sprintnumber], class: "form-control", type: "number",required: "false", min: "1", max: "10", value: "1"%>
 	  			<%= hidden_field_tag "projekt_id", @projekt_id %>
 	  			<%= hidden_field_tag "sprint_id", @sprint_id %>
-	  			<%= submit_tag "Submit", class: "btn btn-default" %>
+	  			<%= submit_tag "Zuordnen", class: "btn btn-default" %>
 			</div>
 		<% end %>
 
@@ -46,3 +49,7 @@
 <div class = "crud">
 			<p><%= link_to "Zurück", sprint_path(projekt_id: @projekt_id, id: @sprint_id) %>
 </div>
+
+
+
+-->

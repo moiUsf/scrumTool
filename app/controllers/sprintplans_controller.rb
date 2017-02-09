@@ -37,14 +37,20 @@ class SprintplansController < ApplicationController
 		@userstory = UserStory.find(@userstory_id)
 		@userstories = @projekt.user_stories
 
-		if @userstory.sprintnumber != ("" || nil) 
+
+		if @userstory.sprintnumber != nil  #|| @userstory.sprintnumber != ""
+
 			flash[:notice] = "Die User Story wurde schon einem Sprint zugeordnet, bitte nur die User Story ohne einen Sprintvermerk auswählen."
 			redirect_to sprintplans_path(sprint_id: @sprint_id, projekt_id: @projekt_id)
 
+		elsif Sprint.where(projekt_id: @projekt_id).where(sprintnumber: @sprintnumber) == []
+			flash[:notice] = "Die eingegebene Sprintnummer ist nicht vorhanden."
+			redirect_to sprintplans_path(sprint_id: @sprint_id, projekt_id: @projekt_id)
 		else
+			
 			@userstory.sprintnumber = @sprintnumber
 			@userstory.save
-			render 'setsprint', projekt_id: @projekt_id, sprint_id: @sprint_id
+			redirect_to sprintplans_path(sprint_id: @sprint_id, projekt_id: @projekt_id) 
 		end
 	end
 end
