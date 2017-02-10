@@ -38,7 +38,7 @@ class SprintplansController < ApplicationController
 		@userstories = @projekt.user_stories
 
 
-		if @userstory.sprintnumber != nil  #|| @userstory.sprintnumber != ""
+		if @userstory.sprintnumber.present?
 
 			flash[:notice] = "Die User Story wurde schon einem Sprint zugeordnet, bitte nur die User Story ohne einen Sprintvermerk auswählen."
 			redirect_to sprintplans_path(sprint_id: @sprint_id, projekt_id: @projekt_id)
