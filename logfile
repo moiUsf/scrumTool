@@ -2,3 +2,5 @@ LOG:  database system was shut down at 2017-02-10 00:15:56 CET
 LOG:  MultiXact member wraparound protections are now enabled
 LOG:  database system is ready to accept connections
 LOG:  autovacuum launcher started
+ERROR:  cannot cast type double precision to timestamp with time zone at character 61
+STATEMENT:  SELECT COUNT(*) AS count_all, (DATE_TRUNC('day', (estimation::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC' AS date_trunc_day_estimation_timestamptz_interval_0_second_at_time FROM "user_stories" WHERE (estimation IS NOT NULL) GROUP BY (DATE_TRUNC('day', (estimation::timestamptz - INTERVAL '0 second') AT TIME ZONE 'Etc/UTC') + INTERVAL '0 second') AT TIME ZONE 'Etc/UTC'

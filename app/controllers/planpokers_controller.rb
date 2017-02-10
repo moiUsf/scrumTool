@@ -54,7 +54,7 @@ class PlanpokersController < ApplicationController
 			@userstory.save
 			redirect_to pokersuccess_path(userstory_id: @userstory_id, projekt_id: @projekt_id, estimation: @estimation1)
 		else
-			flash[:notice] = "Die Einschätzungen waren unterschiedlich, diskutiren Sie warum, danach nochmal einschätzen"
+			flash[:notice] = "Die Einschätzungen waren unterschiedlich, diskutieren Sie bitte erneut und versuchen Sie es noch mal"
 			redirect_to createfields_path(userstory_id: @userstory_id, projekt_id: @projekt_id, playernumber: @playernumber)
 		end
 	

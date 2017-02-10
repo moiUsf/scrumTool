@@ -3,7 +3,7 @@
 
 <div class="row">
 
-  		<div class="col-md-2 list">
+  		<div class="col-md-2 list" id="listretro">
   		 	<p class="ptitle">Sprint Backlog</p>
         	<% if @userstories.count > 0  %>
           		<div class="listcard">
@@ -31,22 +31,22 @@
 		
 			  		<%= form_tag(:action => 'setretros') do %>
 
-			  			<div class="col-md-2" class="form-group">
+			  			<div class="col-md-2 " class="form-group" id="beibehalten">
 							<label> Was wollen wir beibehalten? </label>
 							<%= text_area_tag 'beibehalten', nil, class: 'form-control' %>
 							
 						</div>
 
 
-						<div class="col-md-2" class="form-group">
+						<div class="col-md-2" class="form-group" id="aufhoeren">
 							<label> Womit sollen wir aufhören? </label>
 							<%= text_area_tag 'aufhoeren', nil, class: 'form-control' %>
 							
 						</div>
 
 
-						<div class="col-md-2" class="form-group">
-							<label> was sollen wir zukünftig neu einführen ?</label>
+						<div class="col-md-2" class="form-group" id ="integrieren">
+							<label> Was sollen wir zukünftig neu einführen?</label>
 							<%= text_area_tag 'integrieren', nil, class: 'form-control' %>
 
 							<%= hidden_field_tag "projekt_id", @projekt_id %>

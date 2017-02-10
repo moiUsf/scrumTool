@@ -166,7 +166,7 @@ div .col-md-2 .btn-default
     margin-top: 26px;
 }
 
-#edit_user_story_14
+.formlay
 {
    width: 449px; 
 }
@@ -179,6 +179,24 @@ div .col-md-2 .btn-default
 #sprint_sprintnumber
 {
     width: 300px;
+}
+
+#integrieren
+{
+    height: 200px;
+}
+#aufhoeren
+{
+    height: 200px;
+}
+#beibehalten
+{
+    height: 200px;
+}
+
+#listretro
+{
+    margin-top: 23px;
 }
 
 
